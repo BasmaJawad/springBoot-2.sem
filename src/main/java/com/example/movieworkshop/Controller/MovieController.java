@@ -6,6 +6,8 @@ import com.example.movieworkshop.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 @RestController
 public class MovieController {
 
@@ -30,4 +32,22 @@ public class MovieController {
     public Movie getRandom(){
         return movieService.getRandom();
     }
+
+    @GetMapping("/getTenSortByPopularity")
+
+    public ArrayList<Movie> sortedMovies(){
+        return movieService.tenRandomMovies();
+    }
+
+    @GetMapping("/howManyWonAnAward")
+    public int awards(){
+        return movieService.countAwards();
+    }
+
+    @GetMapping("/filter")
+
+    public ArrayList<Movie> filteredMovies(){
+        return movieService.filteredMovies('b',2);
+    }
 }
+

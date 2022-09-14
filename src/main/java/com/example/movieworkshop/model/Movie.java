@@ -1,6 +1,6 @@
 package com.example.movieworkshop.model;
 
-public class Movie {
+public class Movie implements Comparable<Movie> {
 
     private String year;
     private String length;
@@ -69,5 +69,9 @@ public class Movie {
                 ", pop='" + pop + '\'' +
                 ", awards='" + awards + '\'' +
                 '}';
+    }
+    @Override
+    public int compareTo(Movie o) {
+        return Integer.parseInt(pop)- Integer.parseInt(o.pop);
     }
 }
